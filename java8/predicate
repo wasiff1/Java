@@ -1,1 +1,94 @@
+**Predicate (Java 8)**
+
+A **Predicate** is a **functional interface** in `java.util.function` that represents a **boolean-valued function**.
+
+### Definition
+
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+    boolean test(T t);
+}
+```
+
+### Key Points
+
+* Takes **one input**
+* Returns **boolean**
+* Used mainly for **filtering / conditions**
+* Commonly used with **Streams**
+
+### Example
+
+```java
+Predicate<Integer> isEven = n -> n % 2 == 0;
+
+System.out.println(isEven.test(10)); // true
+System.out.println(isEven.test(7));  // false
+```
+
+### Predicate with Stream
+
+```java
+List<Integer> list = Arrays.asList(1,2,3,4,5,6);
+
+list.stream()
+    .filter(n -> n > 3)
+    .forEach(System.out::println);
+```
+
+### Default Methods in Predicate
+
+java
+Predicate<Integer> p1 = n -> n > 10;
+Predicate<Integer> p2 = n -> n % 2 == 0;
+
+p1.and(p2).test(12);   // true
+p1.or(p2).test(8);    // true
+p1.negate().test(5);  // true
+```
+
+### Real-world Meaning
+
+> **Predicate = Condition / Test**
+
+Example:
+
+* `isAdult`
+* `isActiveUser`
+* `isValidEmail`
+package predicate;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Main {
+    // predicate is a functional interface which return boolean value having test method
+    // since it checks or test the condition that's why called test(<T>) which accepts object
+    public static void main(String[] args) {
+        Predicate<Integer> predicate = x -> x>100000;
+        System.out.println(predicate.test(1000));
+
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        int sum = numbers.stream().filter(x -> x % 2 == 0).mapToInt(x -> x).sum();
+        System.out.println(sum);
+
+        Predicate<Integer> isEven = x->x%2==0;
+        List<Integer> list = Arrays.asList(1,2,3,4,5);
+        for( Integer i : list){
+            if(isEven.test(i)){
+                System.out.println(i);
+            }
+
+        }
+
+        Predicate<String> startsWithW = x-> x.toLowerCase().charAt(0)=='w';
+        System.out.println(startsWithW.test("Wasif"));
+
+        // default and static methods inside predicate
+
+
+    }
+}
 
