@@ -1,0 +1,43 @@
+function 
+=======
+Takes 1 input, returns 1 output
+Used for data transformation.
+
+list.stream()
+    .map(x -> x * 2);
+map() internally uses Function.
+
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Function<String, String> function = s->s.toUpperCase();
+        Function<String, String> function1 = s->s.substring(0,3);
+        Function<String, String> mergeFunction = function.andThen(function1);
+        System.out.println(mergeFunction.apply("wasif"));
+
+        Function<Integer,Integer> function2 = x->2*x;
+        Function<Integer,Integer> function3 = x->x*x*x;
+        
+        System.out.println(function2.andThen(function3).apply(2));// 64
+        System.out.println(function3.andThen(function2).apply(2));// 16
+        System.out.println(function2.compose(function3).apply(2));// 16
+
+        Function<String,String> identityfunction = Function.identity();
+        // identity function takes any input gives back any output
+        System.out.println(identityfunction.apply("wasif"));
+
+    }
+}
+BiFunction
+============
+It takes 2 inputs and returns 1 output.
+“BiFunction is used when we want to process two inputs and return a single result.”
+
+public class BiFunctions {
+    public static void main(String[] args) {
+        BiFunction<String,String,Integer> biFunction = (x,y)->x.length()+y.length();
+        System.out.println(biFunction.apply("Hi","Hello"));
+    }
+}
+
