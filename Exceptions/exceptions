@@ -1,1 +1,38 @@
 
+                         Object
+                            |
+                        Throwable
+                       /          \
+                  Error            Exception
+                    |                 |
+     --------------------      ---------------------------
+     |        |        |      |                         |
+ OutOfMemory  Stack   VM   Checked Exceptions    Un-Checked Exception or (RuntimeException)       it occurs at runtime
+    Error   Overflow Error       |                    |
+                                 |                 ------------------------------------------
+                                 |                    |                  |            |
+                             IOException          NullPointer        Arithmetic    IndexOut
+                                 |                Exception          Exception     OfBounds
+                         FileNotFoundException
+                                 |
+                           SQL Exception
+
+
+
+
+
+Why they are called "checked"      
+---------------------------
+Because the compiler checks:
+
+"Have you handled this exception?"
+If not → program won’t compile.
+
+Key rule
+=======
+Type	                   Propagation
+-----------------------------------------
+ RuntimeException	    |     Automatic
+ Checked Exception    |  	  Must use throws
+ RunTime exception = un checked exception
+
