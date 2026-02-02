@@ -7,7 +7,7 @@ Q2- Sum of all employee salalry using lambda and streame api, Also find employee
 Q3- Find the name from list which starts from letter b using stream					
 	   ("Alice", "Bob", "Charlie", "David", "Eva", "Bob")
 					
-Q4- Convert list of integers into list of strings using java 8
+Q4- Convert list of integers into list of strings using java 8 - cognizant
 					
 Q5- Employee class with field id name and age sort the employee class based on names using stream
 								
@@ -36,4 +36,7 @@ Q11 - Given a list of integers, find out all the numbers starting with 1 using S
       10,15,8,49,25,98,32,14
 
 Q12-  Find the second max element of an array [2, 7, 11, 15] using streams.
+
+Q13- Given a Map<Integer, String>, convert the map’s keys and values into two separate lists.								
+
 						
