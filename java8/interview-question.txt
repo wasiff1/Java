@@ -36,13 +36,4 @@ Q11 - Given a list of integers, find out all the numbers starting with 1 using S
       10,15,8,49,25,98,32,14
 
 Q12-  Find the second max element of an array [2, 7, 11, 15] using streams.
-
-Q13-  Given a list of integers, find out all the numbers starting with 1 using Stream functions?     
-      10,15,8,49,25,98,32,14
-
-Q14- [ "Apple", "Banana", "Kiwi", "Orange", "Grapefruit" ] 
-    - Print the longest string using java 8.
-
-Q15-["Pen", "Eraser", "Notebook", "Pen", "Pencil", "Pen", "Notebook", "Pencil" ]
-      Find most repeated element from array using java 8
 						
