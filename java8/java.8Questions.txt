@@ -1,0 +1,6 @@
+ Q1  Employee class with field id name and age sort the employee class based on names using stream
+ Q2  Calculate the average age of a list of persons objects using stream.
+ Q3  group by words with length ("apple", "banana", "kiwi","deli" ,"orange", "grapefruit","Bglr")
+ Q4  Example 1: Partition employees by age > 30
+ Q5 count of occurence of each words in a list of String
+ Q6 Count occur of each character in a String
