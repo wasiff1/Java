@@ -1,0 +1,159 @@
+Multitasking vs Multithreading – Notes
+Multitasking
+Definition:
+Running multiple processes/programs at the same time.
+
+Level: OS level
+Memory: Separate memory for each process
+Communication: Slow (IPC)
+Overhead: High
+Failure: One process crash does not affect others
+
+Examples:
+
+Chrome + Spotify + VS Code
+
+Running multiple applications in Windows/Linux
+
+Multithreading
+=============
+
+Multithreading
+Definition:
+
+Ek hi program ke andar multiple threads ek saath kaam kar rahe hote hain.
+Example:
+In one application (Chrome):
+Ek thread page load kar raha
+Ek thread download kar raha
+Ek thread UI handle kar raha
+
+Key Differences (Table)
+Feature	Multitasking	Multithreading
+Unit	Process	Thread
+Runs	Multiple programs	Same program
+Memory	Separate	Shared
+Speed	Slower	Faster
+Cost	Expensive	Cheap
+Safety	High	Low
+One-line Definitions (for interview)
+
+Multitasking:
+Running multiple processes simultaneously.
+
+Multithreading:
+Running multiple threads within the same process.
+
+Memory Trick
+------------
+Multitasking = many apps
+Multithreading = many workers inside one app.
+
+
+Thread Life Cycle
+================
+# Thread Life Cycle (Java)
+
+Java thread goes through **6 main states**.
+
+## 1. NEW
+Thread object created but not started.
+Thread t = new Thread();
+
+---
+## 2. RUNNABLE
+After calling `start()`.
+t.start();
+```
+Thread is ready to run (may or may not be executing).
+---
+
+## 3. RUNNING (conceptual)
+Actually executing on CPU.
+(In Java this is part of RUNNABLE state)
+
+---
+
+## 4. BLOCKED
+Waiting to acquire a lock.
+Example
+synchronized(obj) { }
+```
+
+Another thread holds `obj`.
+
+---
+
+## 5. WAITING
+Waiting indefinitely for another thread.
+
+Methods:
+
+* `wait()`
+* `join()`
+* `park()`
+---
+
+## 6. TIMED_WAITING
+Waiting for fixed time.
+
+Methods:
+
+* `sleep(1000)`
+* `wait(1000)`
+* `join(1000)`
+---
+
+## 7. TERMINATED (DEAD)
+Execution finished.
+```java
+run() method ends
+```
+---
+
+## Official Java State Diagram
+
+```
+NEW
+ ↓ start()
+RUNNABLE
+ ↓ CPU
+RUNNING
+ ↓ lock
+BLOCKED
+ ↓ notify
+RUNNABLE
+ ↓ wait()
+WAITING
+ ↓ sleep()
+TIMED_WAITING
+ ↓ complete
+TERMINATED
+```
+
+---
+
+## One-line definitions
+
+| State         | Meaning              |
+| ------------- | -------------------- |
+| NEW           | Created, not started |
+| RUNNABLE      | Ready to run         |
+| BLOCKED       | Waiting for lock     |
+| WAITING       | Waiting forever      |
+| TIMED_WAITING | Waiting for time     |
+| TERMINATED    | Finished             |
+
+---
+
+## Important interview point
+
+Java me **RUNNING alag state nahi hota** officially.
+It is part of **RUNNABLE**.
+
+---
+
+## Memory trick
+
+> **New → Runnable → (Blocked/Waiting/Sleep) → Runnable → Dead**
+
