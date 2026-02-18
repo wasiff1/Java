@@ -1,6 +1,6 @@
 Question asked in interviews
 ===========================
-Q1- Count the number of occurence of letter first repeting letter count Using java 8 features.
+Q1- Count the number of occurence of first repeting letter Using java 8 features.
 
 Q2- Sum of all employee salalry using lambda and streame api, Also find employees whose salary greater than 10k using java 8	
 					
@@ -37,6 +37,10 @@ Q11 - Given a list of integers, find out all the numbers starting with 1 using S
 
 Q12-  Find the second max element of an array [2, 7, 11, 15] using streams.
 
-Q13- Given a Map<Integer, String>, convert the map’s keys and values into two separate lists.								
+Q13- Given a Map<Integer, String>, convert the map’s keys and values into two separate lists.	
+
+Q14- Find first non repeating character in a string str = "swiss"
+
+Q15- Count of occurence of each character in a string.
 
 						
