@@ -1,0 +1,20 @@
+
+Java Collection Hierarchy
+      =========================
+
+                 Iterable
+                     |
+                 Collection
+        ┌────────────┼─────────────┐
+       List          Set           Queue
+        |             |              |
+  ┌─────┼─────┐   ┌───┼────┐   ┌─────┼────────┐
+ ArrayList  LinkedList  HashSet  PriorityQueue  Deque
+ Vector                 LinkedHashSet          |
+  |                         |               ArrayDeque
+ Stack                 SortedSet
+  
+                            |
+
+                        TreeSet
+
