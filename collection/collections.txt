@@ -1,20 +1,163 @@
 
 Java Collection Hierarchy
-      =========================
+=========================
 
-                 Iterable
-                     |
-                 Collection
-        ┌────────────┼─────────────┐
-       List          Set           Queue
-        |             |              |
-  ┌─────┼─────┐   ┌───┼────┐   ┌─────┼────────┐
- ArrayList  LinkedList  HashSet  PriorityQueue  Deque
- Vector                 LinkedHashSet          |
-  |                         |               ArrayDeque
- Stack                 SortedSet
-  
-                            |
+ Iterable (I)
+   |
+Collection (I)
+   |
+   ├──────────────     ─┬───────────────┬───────────────┐
+   ▼                    ▼               ▼
+ List (I)              Set (I)         Queue (I)
+   │                    │               │
+   │                    │               ├── PriorityQueue (C)
+   │                    │               │
+   │                    │               └── Deque (I) sub interface
+   │                    │                 
+   │                    │                     └── LinkedList (C)
+   │
+   ├── ArrayList (C)    ├── HashSet (C)
+   ├── LinkedList (C)   │---LinkedHashSet (C) -> maintain insertion order 
+   ├── Vector (C)       │
+   │     └── Stack (C)  └── SortedSet (I->sub interface)
+   │                            
+   │                           └── TreeSet (C) - Maintain natural sorting order.
+   │
+   
 
-                        TreeSet
+                 
+ Iterable (Top Level)
+-----------------------
+
+Enables for-each loop
+
+Has iterator() method
+
+for(String s : list) { }
+
+ Collection (Root Interface)
+------------------------------
+
+Base interface for all collections
+
+Common methods:
+add()
+remove()
+size()
+contains()
+
+ List ( Maintain Ordered, Allows Duplicates)
+------------------------------------
+✔ Maintains insertion order
+✔ Allows duplicates
+
+ArrayList  - ArrayList implements List interface.
+=========
+It is a dynamic array that can grow and shrink. ArrayList → Fast access / retrieval operation
+
+Internal Working of ArrayList
+----------------
+Uses a resizable array
+
+Default initial capacity = 10
+
+When full → new array created (usually 1.5x size)   
+Old elements copied into new array
+
+Time Complexity
+---------------
+
+| Operation   | Time           |
+| ----------- | -------------- |
+| get(index)  | O(1)           |
+| add(end)    | O(1) amortized |
+| add(middle) | O(n)           |
+| remove      | O(n)           |
+
+Why get() operation is Fast?
+---------------------------
+Because elements are stored in contiguous memory:
+When to Use?
+When frequent reading
+When random access needed
+
+| Feature       | ArrayList             | LinkedList         |
+| ------------- | --------------------- | ------------------ |
+| Internal DS   | Dynamic Array         | Doubly Linked List |
+| Access        | Fast                  | Slow               |
+| Insert/Delete | Slow (shift required) | Fast               |
+
+LinkedList → Fast insert/delete and slow random access
+---------
+Queue → offer(), poll(), peek()
+Deque → addFirst(), addLast(), removeFirst(), removeLast()
+List → add(), get(), remove()
+
+Vector → Synchronized (legacy)
+
+Stack → LIFO (legacy)
+
+Set (No Duplicates) 
+----------------------
+✔ Unique elements only
+Implementations:
+
+HashSet → No order
+
+LinkedHashSet → Insertion order
+
+TreeSet → Sorted order natural sorting
+
+Queue (FIFO)
+----------------
+Queue<Integer> queue = new LinkedList<>();
+queue.offer(10);
+queue.offer(20);
+queue.offer(30);
+System.out.println(queue.poll()); // 10
+System.out.println(queue);        // [20, 30]
+
+Used for processing tasks
+Implementations:
+
+PriorityQueue → Priority-based
+
+Deque (Double-ended queue)
+
+ArrayDeque
+
+| Collection    | Best For               |
+| ------------- | ---------------------- |
+| ArrayList     | Fast reads             |
+| LinkedList    | Frequent insert/delete |
+| HashSet       | Fast uniqueness        |
+| LinkedHashSet | Ordered uniqueness     |
+| TreeSet       | Sorted uniqueness      |
+| PriorityQueue | Priority processing    |
+| ArrayDeque    | Best stack/queue       |
+
+Map (❗Not part of Collection)
+================================
+Stores data in key–value pairs
+
+              Map
+               |
+    ┌──────────┼──────────┐
+ HashMap   LinkedHashMap  Hashtable
+               |
+           SortedMap sub interface
+               |
+             TreeMap
+
+Keys are unique
+Values can be duplicate
+Hashtable → synchronized (legacy)
+
+| Feature     | HashMap    | LinkedHashMap      | TreeMap        |
+| ----------- | ---------- | ------------------ | -------------- |
+| Order       | ❌ No       | ✅ Insertion        | ✅ Sorted   |
+| Null Key    | 1 allowed  | 1 allowed          | ❌ No          |
+| Performance | O(1)       | O(1)               | O(log n)       |
+| Internal    | Hash table | Hash + Linked list | Red-Black tree |
+
 
