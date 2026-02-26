@@ -115,4 +115,4 @@ Controller depends on abstraction
 ✔ Spring injects implementation
 ✔ Loose coupling
 ✔ Easy to test (mock interface)
-DIP satisfied ✅
+DIP satisfied ✅ 
