@@ -1,1 +1,57 @@
+Wrapper Classes are used to convert primitive data types into objects.
 
+Java provides a class for each primitive type in the package java.lang.
+Primitive   vs      Wrapper Classes
+byte	              Byte
+short               Short
+int	                Integer
+long	              Long
+float	              Float  
+etc ..
+
+int a = 10;          // primitive
+Integer b = 10;      // wrapper object
+
+Why Wrapper Classes Are Needed
+1. Collections require objects
+Classes in Java Collections Framework only work with objects.
+
+ArrayList<Integer> list = new ArrayList<>();
+list.add(10);
+Primitive int cannot be stored directly in collections.
+
+Primitive types cannot store null, but wrapper objects can.
+Integer a = null;
+
+Autoboxing and Unboxing
+Autoboxing
+
+Java automatically converts primitive → wrapper object.
+int a = 5;
+Integer b = a;   // autoboxing
+
+Unboxing
+Wrapper → primitive.
+Integer obj = 10;
+int b = obj;      // unboxing
+
+  Integer obj1 =  Integer.valueOf(a); // manual boxing
+        int b = obj.intValue(); // manual unboxing
+        String s = "Wasif";
+        int i = Integer.parseInt(s);
+        Integer i1 = Integer.valueOf(s);
+utility methods of wrapper classes.
+
+parseInt() -> convert wrapper objects into int primitive.
+valueOf() ->  takes int or String returns Integer wrapper obj
+intValue() -> converts into int
+
+       Integer i1 = 127;
+       Integer i2 = 127;
+        System.out.println(i1==i2);  // true
+        Integer i3 = 128;
+        Integer i4 = 128;
+        System.out.println(i3==i4); //false , stored into diff address 
+    -128 to 127 stored in cache pool. so till 
+    Java caches Integer objects for values -128 to 127 to improve performance and memory usage.
+        
